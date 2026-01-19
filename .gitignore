@@ -5,3 +5,6 @@ backend/flash-sale-key.pem
 # Python cache
 __pycache__/
 *.pyc
+# IDE files
+.vscode/
+.idea/
