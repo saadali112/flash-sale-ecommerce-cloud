@@ -1,0 +1,105 @@
+{
+  "cloud_deployment": "AWS EC2 + RDS",
+  "count": 8,
+  "products": [
+    {
+      "category": "men",
+      "discount": 50,
+      "flash_sale": true,
+      "id": 1,
+      "image_url": "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=400",
+      "name": "\u26a1 Flash Sale: Men's Premium Shirt",
+      "original_price": 59.99,
+      "price": 29.99,
+      "status": "In Stock",
+      "stock": 50
+    },
+    {
+      "category": "women",
+      "discount": 50,
+      "flash_sale": true,
+      "id": 2,
+      "image_url": "https://images.unsplash.com/photo-1567095761054-7a02e69e5c43?w=400",
+      "name": "\u26a1 Flash Sale: Women's Summer Dress",
+      "original_price": 69.99,
+      "price": 34.99,
+      "status": "In Stock",
+      "stock": 30
+    },
+    {
+      "category": "kids",
+      "discount": 50,
+      "flash_sale": true,
+      "id": 3,
+      "image_url": "https://images.unsplash.com/photo-1534321452387-cc6d5e2e8b03?w=400",
+      "name": "\u26a1 Flash Sale: Kids Party Wear",
+      "original_price": 39.99,
+      "price": 19.99,
+      "status": "In Stock",
+      "stock": 40
+    },
+    {
+      "category": "electronics",
+      "discount": 50,
+      "flash_sale": true,
+      "id": 4,
+      "image_url": "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400",
+      "name": "\u26a1 Flash Sale: Wireless Headphones",
+      "original_price": 99.99,
+      "price": 49.99,
+      "status": "In Stock",
+      "stock": 25
+    },
+    {
+      "category": "electronics",
+      "discount": 50,
+      "flash_sale": true,
+      "id": 5,
+      "image_url": "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400",
+      "name": "\u26a1 Flash Sale: Smart Watch",
+      "original_price": 399.99,
+      "price": 199.99,
+      "status": "In Stock",
+      "stock": 15
+    },
+    {
+      "category": "sports",
+      "discount": 50,
+      "flash_sale": true,
+      "id": 6,
+      "image_url": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400",
+      "name": "Running Shoes",
+      "original_price": 119.99,
+      "price": 59.99,
+      "status": "In Stock",
+      "stock": 35
+    },
+    {
+      "category": "accessories",
+      "discount": 50,
+      "flash_sale": false,
+      "id": 7,
+      "image_url": "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400",
+      "name": "Backpack",
+      "original_price": 79.99,
+      "price": 39.99,
+      "status": "In Stock",
+      "stock": 60
+    },
+    {
+      "category": "men",
+      "discount": 50,
+      "flash_sale": false,
+      "id": 8,
+      "image_url": "https://images.unsplash.com/photo-1552374196-1ab2a1c593e8?w=400",
+      "name": "Formal Blazer",
+      "original_price": 159.99,
+      "price": 79.99,
+      "status": "In Stock",
+      "stock": 20
+    }
+  ],
+  "region": "us-east-1",
+  "status": "success",
+  "timestamp": "2025-12-17T11:57:43.913713"
+}

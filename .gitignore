@@ -1,0 +1,7 @@
+# AWS sensitive files
+*.pem
+*.key
+backend/flash-sale-key.pem
+# Python cache
+__pycache__/
+*.pyc

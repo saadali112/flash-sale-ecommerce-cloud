@@ -1,387 +1,337 @@
 <!DOCTYPE html>
 
 <head>
-
-    <title>E-Commerce</title>
-
+    <title>⚡ Flash Sale E-Commerce | Cloud Computing Project</title>
     <link rel="icon" href="Images/Logo.jpg">
-
     <link rel="stylesheet" href="style.css">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
 <body>
 
+    <!-- AWS CLOUD STATUS BAR -->
+    <div class="aws-status-bar">
+        <div class="region-status">
+            <div class="region">
+                <span class="region-dot active" id="region-us"></span>
+                <span>US-East (Virginia)</span>
+            </div>
+            <div class="region">
+                <span class="region-dot active" id="region-eu"></span>
+                <span>EU-West (Ireland)</span>
+            </div>
+            <div class="region">
+                <span class="region-dot syncing" id="region-sync"></span>
+                <span>Database Sync</span>
+            </div>
+        </div>
+        <div class="load-status">
+            <span>Load: </span>
+            <div class="load-indicator" id="load-indicator" style="width: 30%"></div>
+            <span id="current-load">30%</span>
+        </div>
+    </div>
+
+    <!-- FLASH SALE BANNER -->
+    <div class="flash-sale-banner">
+        <h2><i class="fas fa-bolt"></i> MEGA FLASH SALE LIVE!</h2>
+        <p>Limited Time - 50% OFF Everything | Auto-scaling Enabled</p>
+        <div class="flash-sale-timer">
+            <span id="countdown-hours">24</span>:<span id="countdown-minutes">00</span>:<span id="countdown-seconds">00</span>
+        </div>
+    </div>
+
     <div class="navbar">
-
         <div class="nav-logo">
-
             <img id="logo" src="Images/Logo.jpg" alt="Image Not Available" />
-
-            <p>E-Commerce</p>
-
+            <p>⚡ FlashSale</p>
         </div>
 
         <ul class="nav-menu">
-
             <a href="index.html">
-
-                <li id='link-1'>Home</li>
-
+                <li id='link-1'><i class="fas fa-home"></i> Home</li>
             </a>
-
             <a href="Men.html">
-
-                <li id='link-2'>Men</li>
-
+                <li id='link-2'><i class="fas fa-male"></i> Men</li>
             </a>
-
             <a href="Women.html">
-
-                <li id='link-3'>Women</li>
-
+                <li id='link-3'><i class="fas fa-female"></i> Women</li>
             </a>
-
             <a href="Kids.html">
-
-                <li id='link-4'>Kids</li>
-
+                <li id='link-4'><i class="fas fa-child"></i> Kids</li>
             </a>
-
+            <!-- New Link for Admin/Testing -->
+            <a href="admin.html">
+                <li id='link-5'><i class="fas fa-cloud"></i> Cloud Admin</li>
+            </a>
         </ul>
 
         <div class="mode">
-
             <div id="toggle-btn" onclick="change_mode()">
-
                 <div id="toggle"></div>
-
             </div>
-
         </div>
 
         <div class="nav-login-cart">
-
             <a href="Login Page.html">
-
-                <button>Log In</button>
-
+                <button><i class="fas fa-sign-in-alt"></i> Log In</button>
             </a>
-
             <a href="Cart.html">
-
                 <img id='cart-icon' src="Images/Cart Icon.jpg" alt="Image Not Available" />
-
             </a>
-
             <div id="cart-count"></div>
-
         </div>
+    </div>
 
+    <!-- LOAD TESTING CONTROLS -->
+    <div class="load-test-controls">
+        <p><i class="fas fa-server"></i> <strong>AWS Auto-scaling Simulation</strong> - Test how our cloud handles traffic spikes</p>
+        <div class="test-buttons">
+            <button class="test-btn low" onclick="simulateLoad('low')">
+                <i class="fas fa-users"></i> Low Load (100 users)
+            </button>
+            <button class="test-btn medium" onclick="simulateLoad('medium')">
+                <i class="fas fa-users"></i> Medium Load (1,000 users)
+            </button>
+            <button class="test-btn high" onclick="simulateLoad('high')">
+                <i class="fas fa-users"></i> Flash Sale Load (10,000 users)
+            </button>
+        </div>
+        <p id="load-status">Current load: Normal</p>
     </div>
 
     <div class="introduction">
-
         <div class="introduction-left">
-
-            <h1>New Collections For Everyone</h1>
-
-            <br /> <br />
-
+            <h1>Cloud-Powered Flash Sale!</h1>
+            <p style="font-size: 1.2rem; margin: 1rem 0; color: #333;">
+                <i class="fas fa-cloud"></i> Powered by AWS Auto-scaling & Multi-Region Database
+            </p>
+            <br />
             <a href="New Collections.html">
-
-                <button>View Collections</button>
-
+                <button><i class="fas fa-bolt"></i> View Flash Deals</button>
             </a>
-
+            <br/><br/>
+            <div style="background: #f8f9fa; padding: 15px; border-radius: 10px; border-left: 5px solid #3498db;">
+                <h3><i class="fas fa-info-circle"></i> Cloud Architecture:</h3>
+                <p>• AWS EC2 Auto-scaling (IaaS)</p>
+                <p>• RDS PostgreSQL Multi-Region (PaaS)</p>
+                <p>• S3 Static Hosting + CloudFront CDN</p>
+                <p>• Multi-AZ Fault Tolerance</p>
+            </div>
         </div>
 
         <div class="introduction-right">
-
             <img src="Images/Introduction Image.jpg" alt="Image Not Available" />
-
         </div>
-
     </div>
 
     <div class="popular">
-
-        <h1>Popular In Men</h1>
-
+        <h1><i class="fas fa-fire"></i> Flash Sale - Men's Collection</h1>
         <div class="items">
-
             <div class="item" data-id="1" onclick="go_to_product_details(this)">
-
+                <div class="flash-badge">⚡ FLASH SALE</div>
                 <img src="Images/Men-Dress-1 (1).jpg" alt="Image Not Available" />
-
-                <p>ABC</p>
-
+                <p>Premium Men's Shirt</p>
                 <div class="item-prices">
-
-                    <div class="item-price-new">50 USD</div>
-
-                    <div class="item-price-old">75 USD</div>
-
+                    <div class="item-price-new">$29.99 <small style="color:#27ae60;">(50% OFF)</small></div>
+                    <div class="item-price-old">$59.99</div>
                 </div>
-
             </div>
 
             <div class="item" data-id="2" onclick="go_to_product_details(this)">
-
+                <div class="flash-badge">⚡ FLASH SALE</div>
                 <img src="Images/Men-Dress-2.jpg" alt="Image Not Available" />
-
-                <p>ABC</p>
-
+                <p>Casual Men's T-Shirt</p>
                 <div class="item-prices">
-
-                    <div class="item-price-new">50 USD</div>
-
-                    <div class="item-price-old">75 USD</div>
-
+                    <div class="item-price-new">$19.99 <small style="color:#27ae60;">(50% OFF)</small></div>
+                    <div class="item-price-old">$39.99</div>
                 </div>
-
             </div>
 
             <div class="item" data-id="3" onclick="go_to_product_details(this)">
-
                 <img src="Images/Men-Dress-3.jpg" alt="Image Not Available" />
-
-                <p>ABC</p>
-
+                <p>Formal Men's Blazer</p>
                 <div class="item-prices">
-
-                    <div class="item-price-new">50 USD</div>
-
-                    <div class="item-price-old">75 USD</div>
-
+                    <div class="item-price-new">$79.99</div>
+                    <div class="item-price-old">$99.99</div>
                 </div>
-
             </div>
 
             <div class="item" data-id="4" onclick="go_to_product_details(this)">
-
+                <div class="flash-badge">⚡ FLASH SALE</div>
                 <img src="Images/Men-Dress-4.jpg" alt="Image Not Available" />
-
-                <p>ABC</p>
-
+                <p>Men's Denim Jacket</p>
                 <div class="item-prices">
-
-                    <div class="item-price-new">50 USD</div>
-
-                    <div class="item-price-old">75 USD</div>
-
+                    <div class="item-price-new">$39.99 <small style="color:#27ae60;">(50% OFF)</small></div>
+                    <div class="item-price-old">$79.99</div>
                 </div>
-
             </div>
-
         </div>
-
     </div>
 
     <div class="popular">
-
-        <h1>Popular In Women</h1>
-
+        <h1><i class="fas fa-fire"></i> Flash Sale - Women's Collection</h1>
         <div class="items">
-
             <div class="item" data-id="13" onclick="go_to_product_details(this)">
-
+                <div class="flash-badge">⚡ FLASH SALE</div>
                 <img src="Images/Women-Dress-1 (1).jpg" alt="Image Not Available" />
-
-                <p>ABC</p>
-
+                <p>Elegant Women's Dress</p>
                 <div class="item-prices">
-
-                    <div class="item-price-new">50 USD</div>
-
-                    <div class="item-price-old">75 USD</div>
-
+                    <div class="item-price-new">$34.99 <small style="color:#27ae60;">(50% OFF)</small></div>
+                    <div class="item-price-old">$69.99</div>
                 </div>
-
             </div>
 
             <div class="item" data-id="14" onclick="go_to_product_details(this)">
-
                 <img src="Images/Women-Dress-2.jpg" alt="Image Not Available" />
-
-                <p>ABC</p>
-
+                <p>Women's Summer Top</p>
                 <div class="item-prices">
-
-                    <div class="item-price-new">50 USD</div>
-
-                    <div class="item-price-old">75 USD</div>
-
+                    <div class="item-price-new">$24.99</div>
+                    <div class="item-price-old">$34.99</div>
                 </div>
-
             </div>
 
             <div class="item" data-id="15" onclick="go_to_product_details(this)">
-
+                <div class="flash-badge">⚡ FLASH SALE</div>
                 <img src="Images/Women-Dress-3.jpg" alt="Image Not Available" />
-
-                <p>ABC</p>
-
+                <p>Women's Formal Suit</p>
                 <div class="item-prices">
-
-                    <div class="item-price-new">50 USD</div>
-
-                    <div class="item-price-old">75 USD</div>
-
+                    <div class="item-price-new">$59.99 <small style="color:#27ae60;">(50% OFF)</small></div>
+                    <div class="item-price-old">$119.99</div>
                 </div>
-
             </div>
 
             <div class="item" data-id="16" onclick="go_to_product_details(this)">
-
                 <img src="Images/Women-Dress-4.jpg" alt="Image Not Available" />
-
-                <p>ABC</p>
-
+                <p>Casual Women's Jeans</p>
                 <div class="item-prices">
-
-                    <div class="item-price-new">50 USD</div>
-
-                    <div class="item-price-old">75 USD</div>
-
+                    <div class="item-price-new">$29.99</div>
+                    <div class="item-price-old">$39.99</div>
                 </div>
-
             </div>
-
         </div>
-
     </div>
 
     <div class="popular">
-
-        <h1>Popular In Kids</h1>
-
+        <h1><i class="fas fa-fire"></i> Kids' Collection</h1>
         <div class="items">
-
             <div class="item" data-id="25" onclick="go_to_product_details(this)">
-
+                <div class="flash-badge">⚡ FLASH SALE</div>
                 <img src="Images/Kids-Dress-1 (1).jpg" alt="Image Not Available" />
-
-                <p>ABC</p>
-
+                <p>Kids' Party Wear</p>
                 <div class="item-prices">
-
-                    <div class="item-price-new">50 USD</div>
-
-                    <div class="item-price-old">75 USD</div>
-
+                    <div class="item-price-new">$19.99 <small style="color:#27ae60;">(50% OFF)</small></div>
+                    <div class="item-price-old">$39.99</div>
                 </div>
-
             </div>
 
             <div class="item" data-id="26" onclick="go_to_product_details(this)">
-
                 <img src="Images/Kids-Dress-2.jpg" alt="Image Not Available" />
-
-                <p>ABC</p>
-
+                <p>Kids' Casual Set</p>
                 <div class="item-prices">
-
-                    <div class="item-price-new">50 USD</div>
-
-                    <div class="item-price-old">75 USD</div>
-
+                    <div class="item-price-new">$24.99</div>
+                    <div class="item-price-old">$29.99</div>
                 </div>
-
             </div>
 
             <div class="item" data-id="27" onclick="go_to_product_details(this)">
-
+                <div class="flash-badge">⚡ FLASH SALE</div>
                 <img src="Images/Kids-Dress-3.jpg" alt="Image Not Available" />
-
-                <p>ABC</p>
-
+                <p>Kids' Winter Jacket</p>
                 <div class="item-prices">
-
-                    <div class="item-price-new">50 USD</div>
-
-                    <div class="item-price-old">75 USD</div>
-
+                    <div class="item-price-new">$29.99 <small style="color:#27ae60;">(50% OFF)</small></div>
+                    <div class="item-price-old">$59.99</div>
                 </div>
-
             </div>
 
             <div class="item" data-id="28" onclick="go_to_product_details(this)">
-
                 <img src="Images/Kids-Dress-4.jpg" alt="Image Not Available" />
-
-                <p>ABC</p>
-
+                <p>Kids' Sportswear</p>
                 <div class="item-prices">
-
-                    <div class="item-price-new">50 USD</div>
-
-                    <div class="item-price-old">75 USD</div>
-
+                    <div class="item-price-new">$22.99</div>
+                    <div class="item-price-old">$27.99</div>
                 </div>
-
             </div>
-
         </div>
-
     </div>
 
     <div class="offer">
-
         <div class="offer-left">
-
-            <h1>Exclusive Offers For You</h1>
-
-            <br /> <br />
-
-            <button onclick="offer()">Check Now</button>
-
+            <h1>AWS Cloud Powered Deals</h1>
+            <p style="font-size: 1.2rem; margin: 1rem 0;">
+                <i class="fas fa-database"></i> Multi-Region Database Ensures Your Orders Are Safe
+            </p>
+            <br />
+            <button onclick="offer()"><i class="fas fa-tags"></i> Check Cloud Deals</button>
+            
+            <!-- Cloud Architecture Info Box -->
+            <div style="margin-top: 2rem; background: white; padding: 15px; border-radius: 10px; border: 2px solid #3498db;">
+                <h3><i class="fas fa-cloud"></i> Project Architecture:</h3>
+                <p><strong>Frontend:</strong> S3 + CloudFront (PaaS)</p>
+                <p><strong>Backend:</strong> EC2 Auto-scaling (IaaS)</p>
+                <p><strong>Database:</strong> RDS PostgreSQL Multi-Region</p>
+                <p><strong>Load Balancer:</strong> AWS ALB</p>
+            </div>
         </div>
 
         <div class="offer-right">
-
             <img src="Images/Diwali Offer.jpg" alt="Image Not Available" />
-
         </div>
+    </div>
 
+    <!-- Cloud Architecture Indicator (Floating) -->
+    <div class="cloud-arch-indicator">
+        <h4><i class="fas fa-cloud"></i> AWS Services Status</h4>
+        <div class="cloud-service">
+            <span>EC2 Instances:</span>
+            <span class="service-status active" id="ec2-status">2 Active</span>
+        </div>
+        <div class="cloud-service">
+            <span>RDS Database:</span>
+            <span class="service-status active" id="rds-status">Multi-Region</span>
+        </div>
+        <div class="cloud-service">
+            <span>Auto-scaling:</span>
+            <span class="service-status active" id="scaling-status">Enabled</span>
+        </div>
+        <div class="cloud-service">
+            <span>Load Balancer:</span>
+            <span class="service-status active" id="lb-status">Healthy</span>
+        </div>
+        <button onclick="toggleCloudPanel()" style="width:100%; margin-top:10px; padding:8px; background:#3498db; color:white; border:none; border-radius:5px; cursor:pointer;">
+            <i class="fas fa-sync-alt"></i> Refresh Status
+        </button>
     </div>
 
     <div class="footer">
-
         <div class="footer-logo">
-
             <img id='logo' src="Images/Logo.jpg" alt="Image Not Available" />
-
-            <p>E-Commerce</p>
-
+            <p>⚡ FlashSale Cloud</p>
         </div>
-
+        
+        <div style="text-align: center; margin: 1rem 0; color: #666;">
+            <p><i class="fas fa-server"></i> <strong>Cloud Computing Project - CE408</strong></p>
+            <p>Scalable Multi-Tier Cloud Application for Unpredictable Workloads</p>
+        </div>
+        
         <ul class='socials'>
-
             <li>
-
                 <img src="Images/Instagram Logo.jpg" alt="Image Not Available" />
-
             </li>
-
             <li>
-
                 <img src="Images/Facebook Logo.jpg" alt="Image Not Available" />
-
             </li>
-
             <li>
-
                 <img src="Images/Twitter Logo.jpg" alt="Image Not Available" />
-
             </li>
-
         </ul>
-
+        
         <hr />
-
-        <p id='copyright'>© <a href="https://hitarthpathak.github.io/" target="_blank">Hitarth Pathak</a></p>
-
+        
+        <p id='copyright'>
+            © <a href="https://hitarthpathak.github.io/" target="_blank">Hitarth Pathak</a> | 
+            <strong>Cloud Architecture:</strong> AWS EC2 + RDS + Auto-scaling + Multi-Region
+        </p>
     </div>
 
 </body>
@@ -389,19 +339,114 @@
 <script src="script.js"></script>
 
 <script>
+    // Flash Sale Countdown Timer
+    function startFlashSaleCountdown() {
+        let hours = 24;
+        let minutes = 0;
+        let seconds = 0;
+        
+        const updateTimer = () => {
+            if (seconds === 0) {
+                if (minutes === 0) {
+                    if (hours === 0) {
+                        // Flash sale ended
+                        document.querySelector('.flash-sale-banner').innerHTML = 
+                            '<h2><i class="fas fa-hourglass-end"></i> Flash Sale Ended!</h2>' +
+                            '<p>Thank you for shopping with us!</p>';
+                        return;
+                    }
+                    hours--;
+                    minutes = 59;
+                } else {
+                    minutes--;
+                }
+                seconds = 59;
+            } else {
+                seconds--;
+            }
+            
+            document.getElementById('countdown-hours').textContent = hours.toString().padStart(2, '0');
+            document.getElementById('countdown-minutes').textContent = minutes.toString().padStart(2, '0');
+            document.getElementById('countdown-seconds').textContent = seconds.toString().padStart(2, '0');
+        };
+        
+        // Update every second
+        setInterval(updateTimer, 1000);
+    }
 
-    function offer() {
-
-        let coupen = prompt("Please Enter Your Coupen Code Here!");
-
-        if (coupen != "") {
-
-            alert("Sorry! The Offer Expired!");
-
+    // Load Simulation Functions
+    function simulateLoad(level) {
+        const loadStatus = document.getElementById('load-status');
+        const loadIndicator = document.getElementById('load-indicator');
+        const currentLoad = document.getElementById('current-load');
+        
+        let loadValue, text, color;
+        
+        switch(level) {
+            case 'low':
+                loadValue = 50;
+                text = 'Low load (100 users) - Normal operation';
+                color = '#2ecc71';
+                break;
+            case 'medium':
+                loadValue = 75;
+                text = 'Medium load (1,000 users) - Auto-scaling may trigger';
+                color = '#f39c12';
+                break;
+            case 'high':
+                loadValue = 95;
+                text = 'Flash Sale load (10,000 users) - Auto-scaling active!';
+                color = '#e74c3c';
+                break;
         }
+        
+        // Update UI
+        loadIndicator.style.width = loadValue + '%';
+        loadIndicator.style.background = color;
+        currentLoad.textContent = loadValue + '%';
+        loadStatus.textContent = text;
+        loadStatus.style.color = color;
+        
+        // Show notification
+        alert('Load test started: ' + text + '\n\nThis simulates AWS auto-scaling behavior.');
+    }
 
-    };
+    // Cloud Status Panel Functions
+    function toggleCloudPanel() {
+        const panel = document.querySelector('.cloud-arch-indicator');
+        panel.style.display = panel.style.display === 'none' ? 'block' : 'none';
+    }
 
+    // Simulate AWS service status updates
+    function updateCloudStatus() {
+        const statuses = ['active', 'active', 'active']; // Normally you'd fetch from AWS
+        
+        // Randomly change status for demo
+        if (Math.random() > 0.8) {
+            document.getElementById('ec2-status').textContent = 'Scaling...';
+            document.getElementById('ec2-status').className = 'service-status syncing';
+        } else {
+            document.getElementById('ec2-status').textContent = '2 Active';
+            document.getElementById('ec2-status').className = 'service-status active';
+        }
+    }
+
+    // Original offer function
+    function offer() {
+        let coupon = prompt("Enter 'CLOUD2025' for special cloud discount!");
+        if (coupon === "CLOUD2025") {
+            alert("🎉 Congratulations! You got 20% EXTRA discount for knowing our cloud architecture!");
+        } else if (coupon) {
+            alert("Try 'CLOUD2025' for a special cloud computing discount!");
+        }
+    }
+
+    // Initialize everything when page loads
+    document.addEventListener('DOMContentLoaded', function() {
+        startFlashSaleCountdown();
+        // Update cloud status every 10 seconds
+        setInterval(updateCloudStatus, 10000);
+    });
 </script>
 
 </html>
